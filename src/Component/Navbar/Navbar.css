@@ -1,0 +1,8 @@
+.navbar{
+    border-bottom: 1px solid rgba(135, 135, 135, 0.7) !important;
+    background-color: var(--bg-main) !important;
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+   
+}
