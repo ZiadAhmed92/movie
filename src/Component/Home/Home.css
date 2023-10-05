@@ -4,3 +4,43 @@
 .text-muted{
     color: rgba(255, 255, 255, 0.5) !important;
 }
+.home-favourit{
+    background: rgb(166, 180, 57) ;
+    width: 100%;
+    cursor: pointer;
+    bottom: 0;
+    opacity: 0;   
+}
+.movieFavourit:hover .home-favourit{
+    opacity: 1;
+}
+.addFavourit{
+    font-size: 0.8em;
+    padding: 0;
+    cursor: pointer;
+    margin: 0;
+}
+/* favourites */
+.offcanvas{
+    background-color: var(--bg-main);
+    z-index: 20000;
+    color: white;
+}
+.btn-close{
+    color: white !important;
+}
+.parent-favourit{
+margin:0 5px;
+}
+.btn-favourit{
+    background: transparent;
+}
+.icon-remove{
+   opacity: 1 !important;
+}
+
+@media only screen and (max-width: 800px) {
+    .parent-favourit{
+        margin: 5px;
+        }
+  }

@@ -1,19 +1,32 @@
-import React from 'react'
-import Footer from '../Footer/Footer'
-import Navbar from '../Navbar/Navbar'
-import { Outlet } from 'react-router-dom'
+import React from "react";
+import Footer from "../Footer/Footer";
+import Navbar from "../Navbar/Navbar";
+import { Outlet } from "react-router-dom";
 
-const Layout = ({userData ,logOut,setUserdata}) => {
+const Layout = ({
+  userData,
+  logOut,
+  setUserdata,
+  favourites,
+  removeFavouritMovie,
+  addFavouritMovie,
+}) => {
   return (
     <div>
-    <Navbar userData={userData} logOut={logOut} setUserdata={setUserdata}/>
-    <div className="container">
-    <Outlet></Outlet>
+      <Navbar
+        favourites={favourites}
+        removeFavouritMovie={removeFavouritMovie}
+        addFavouritMovie={addFavouritMovie}
+        userData={userData}
+        logOut={logOut}
+        setUserdata={setUserdata}
+      />
+      <div className="container">
+        <Outlet></Outlet>
+      </div>
+      {/* {userData?<Footer/>:""} */}
     </div>
-    {/* {userData?<Footer/>:""} */}
-    
-    </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

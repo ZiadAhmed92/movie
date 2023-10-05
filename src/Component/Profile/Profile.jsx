@@ -17,9 +17,9 @@ const Profile = ({userData}) => {
                 }
                
             </div>
-            <div className="col-md-12">
+            {/* <div className="col-md-12">
               <h1 className='text-danger text-center'>Design By Ziad</h1>
-            </div>
+            </div> */}
         </div>
     </div>
     </>
