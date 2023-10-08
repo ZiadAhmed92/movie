@@ -7,16 +7,11 @@ const Layout = ({
   userData,
   logOut,
   setUserdata,
-  favourites,
-  removeFavouritMovie,
-  addFavouritMovie,
+ 
 }) => {
   return (
     <div>
       <Navbar
-        favourites={favourites}
-        removeFavouritMovie={removeFavouritMovie}
-        addFavouritMovie={addFavouritMovie}
         userData={userData}
         logOut={logOut}
         setUserdata={setUserdata}

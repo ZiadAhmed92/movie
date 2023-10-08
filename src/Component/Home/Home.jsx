@@ -1,29 +1,13 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+
+import React, { useContext} from "react";
 import { Link } from "react-router-dom";
+import { movieContext } from "../../Context/Store";
 import Footer from "../Footer/Footer";
+import "./Home.css"
 
-import "./Home.css";
-
-const Home = ({ favourites, removeFavouritMovie, addFavouritMovie }) => {
-  const [trindingMovie, setTrindingMovie] = useState([]);
-  const [trindingTv, setTrindingTv] = useState([]);
-  const [trindingPerson, setTrindingPerson] = useState([]);
- 
-
-  async function getTrindingMovies(movie, callback) {
-    let { data } = await axios.get(
-      `https://api.themoviedb.org/3/trending/${movie}/week?api_key=f1aca93e54807386df3f6972a5c33b50`
-    );
-    callback(data.results);
-  }
-
-  useEffect(() => {
-    getTrindingMovies("movie", setTrindingMovie);
-    getTrindingMovies("tv", setTrindingTv);
-    getTrindingMovies("person", setTrindingPerson);
-  }, []);
-
+const Home = () => {
+  const {trindingMovie ,trindingTv ,trindingPerson} = useContext(movieContext)
+  let {addFavouritMovie} =useContext(movieContext)
   return (
     <>
       {trindingMovie ? (

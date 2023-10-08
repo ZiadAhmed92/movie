@@ -15,26 +15,12 @@ import { useEffect, useState } from 'react';
 import ProtectedRouter from '../Component/ProtectedRouter/ProtectedRouter';
 import Moviedetails from '../Component/MovieDetails/Moviedetails';
 import MovieDetailsCompleted from '../Component/MovieDetails/MovieDetailsCompleted';
-import Favourites from '../Component/Favourites/Favourites';
+
 
 
 function App() {
   const[userData , setUserdata] = useState(null)
-  const [favourites, setFavourites] = useState([]);
-  function addFavouritMovie(movie) {
-    if (favourites.find((fav) => fav.id === movie.id) == null) {
-      setFavourites([...favourites, movie]);
-    } else {
-      window.alert("Already Added");
-    }
-  }
-  function removeFavouritMovie(movie) {
-    let newFavourit = favourites.filter(
-      (moviedelete) => movie.id !== moviedelete.id
-    );
-    setFavourites(newFavourit);
-    //  window.alert("Are You Sure To Remove This Movie From Favourites ?")
-  }
+ 
     useEffect(()=>{
       if(localStorage.getItem('userToken') !== null){
         dataUser()
@@ -53,8 +39,8 @@ function App() {
 
     }
   let router = createBrowserRouter([
-    {path:"/" , element:<Layout favourites={favourites} removeFavouritMovie={removeFavouritMovie} userData={userData} logOut={logOut} setUserdata={setUserdata}/>,children:[
-      {index:true , element:<ProtectedRouter dataUser={dataUser} userData={userData}><Home favourites={favourites} removeFavouritMovie={removeFavouritMovie} addFavouritMovie={addFavouritMovie}/></ProtectedRouter>},
+    {path:"/" , element:<Layout   userData={userData} logOut={logOut} setUserdata={setUserdata}/>,children:[
+      {index:true , element:<ProtectedRouter dataUser={dataUser} userData={userData}><Home /></ProtectedRouter>},
       {path:"login" , element:<ProtectedRouter dataUser={dataUser} userData={userData}><Login dataUser={dataUser}/></ProtectedRouter>},
       {path:"movies" , element:<ProtectedRouter dataUser={dataUser} userData={userData}><Movies/></ProtectedRouter>},
       {path:"people" , element:<ProtectedRouter dataUser={dataUser} userData={userData}><People/></ProtectedRouter>},

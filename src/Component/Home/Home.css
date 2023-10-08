@@ -29,18 +29,17 @@
 .btn-close{
     color: white !important;
 }
-.parent-favourit{
-margin:0 5px;
-}
+
 .btn-favourit{
-    background: transparent;
+    
+    cursor: pointer;
 }
 .icon-remove{
    opacity: 1 !important;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 970px) {
     .parent-favourit{
-        margin: 5px;
-        }
+        margin: 0 !important;
+    }
   }

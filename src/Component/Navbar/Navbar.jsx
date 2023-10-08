@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "../Navbar/Navbar.css";
 import Favourites from "../Favourites/Favourites";
+import { movieContext } from "../../Context/Store";
 
 const Navbar = ({
   userData,
-  favourites,
-  removeFavouritMovie,
-  setUserdata,
+
   logOut,
 }) => {
+  let { favourites, removeFavouritMovie } = useContext(movieContext);
   return (
     <>
       <nav className=" navbar navbar-expand-lg  navbar-dark ">
@@ -59,6 +59,10 @@ const Navbar = ({
                     People
                   </Link>
                 </li>
+                <li className="parent-favourit m-2 ">
+                 
+                  <Favourites />
+                </li>
                 {/* <li className="nav-item">
           <Link className="nav-link active" aria-current="page" to="about">About</Link>
         </li> */}
@@ -68,14 +72,6 @@ const Navbar = ({
             )}
 
             <ul className="navbar-nav d-flex align-items-center ms-auto mb-2 mb-lg-0">
-              <li className="parent-favourit">
-                {" "}
-                <Favourites
-                  favourites={favourites}
-                  removeFavouritMovie={removeFavouritMovie}
-                  
-                />
-              </li>
               {userData ? (
                 <>
                   <li className="nav-item mx-3 ">

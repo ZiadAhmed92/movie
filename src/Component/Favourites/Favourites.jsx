@@ -1,18 +1,19 @@
-import Button from "react-bootstrap/Button";
+
 import Offcanvas from "react-bootstrap/Offcanvas";
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { movieContext } from "../../Context/Store";
 
-const Favourites = ({ favourites, removeFavouritMovie }) => {
+const Favourites = () => {
+  let {favourites ,removeFavouritMovie} =useContext(movieContext)
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(!show);
   return (
-    <div className="parent-favourit">
-      <Button className="btn-favourit " variant="primary" onClick={handleShow}>
+    <div >
+      <div className=" btn-favourit " variant="primary" onClick={handleShow}>
         Favourites {favourites.length == 0 ? "" : favourites.length}
-      </Button>
+      </div>
 
       <Offcanvas className="offcanvas" show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
@@ -22,8 +23,8 @@ const Favourites = ({ favourites, removeFavouritMovie }) => {
           <div className="container">
             <div className="row">
               
-              {favourites.map((movie) => (
-            <div className="col-md-6">
+              {favourites.map((movie ,i) => (
+            <div className="col-md-6" key={i}>
               <div>
              <div className="img-remove position-relative">
              <img
